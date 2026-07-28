@@ -1,5 +1,7 @@
 # 🚀 DRAKORYX - CDN Revelator
-
+<p align="center">
+  <img src="assets/1.png" alt="Banner 1" width="100%">
+</p>
 <p align="center">
   <img src="https://img.shields.io/badge/Version-NEXUS--808-blue?style=for-the-badge&logo=github">
   <img src="https://img.shields.io/badge/Python-3.8%2B-green?style=for-the-badge&logo=python">
