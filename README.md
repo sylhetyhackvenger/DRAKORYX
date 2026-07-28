@@ -1,4 +1,4 @@
-🚀 DRAKORYX - CDN Revelator
+# 🚀 DRAKORYX - CDN Revelator
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-NEXUS--808-blue?style=for-the-badge&logo=github">
