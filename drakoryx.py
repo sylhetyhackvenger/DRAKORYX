@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-# ═══════════════════════════════════════════════════════════════════════════
-#  DRAKORYX - CDN REVELATOR
-#  ⚡ Cybernetic Network Analysis Tool ⚡
-#  Author: SYLHETYHACKVENGER (THE-ERROR808)
-#  ═══════════════════════════════════════════════════════════════════════════
 
 import ipaddress
 import sys
@@ -19,15 +14,9 @@ from typing import List, Optional, Tuple, Dict, Any
 from colorama import init, Fore, Back, Style
 from datetime import datetime
 
-# Initialize colorama for cross-platform color support
 init(autoreset=True)
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  CONFIGURATION MATRIX
-# ═══════════════════════════════════════════════════════════════════════════
-
 class Config:
-    """Quantum configuration parameters for the Drakoryx engine"""
     BUILD = "NEXUS-808"
     API_TIMEOUT = 5
     MAX_RETRIES = 3
@@ -35,7 +24,6 @@ class Config:
     MAX_THREADS = 100
     DEFAULT_THREADS = 20
 
-    # Cyberpunk color palette
     COLORS = {
         'primary': Fore.CYAN,
         'success': Fore.GREEN,
@@ -49,7 +37,6 @@ class Config:
         'bright': Style.BRIGHT
     }
 
-    # CDN Provider Endpoints
     CDN_SOURCES = {
         'cloudflare': "https://www.cloudflare.com/ips-v4",
         'cloudfront': "https://d7uri8nf7uskq.cloudfront.net/tools/list-cloudfront-ips",
@@ -57,7 +44,6 @@ class Config:
         'akamai': "https://api.akamai.com/ips/v1/ips.json"
     }
 
-    # CDN Provider Headers for detection
     CDN_PROVIDERS = {
         'cloudflare': ['cf-', 'cloudflare', 'cf-ray'],
         'cloudfront': ['x-amz-cf', 'cloudfront', 'x-cache'],
@@ -65,13 +51,7 @@ class Config:
         'akamai': ['akamai', 'x-akamai', 'x-edge']
     }
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  NEURAL PATTERN RECOGNITION
-# ═══════════════════════════════════════════════════════════════════════════
-
 class PatternMatrix:
-    """Advanced pattern recognition for network entities"""
-
     IP_PATTERN = re.compile(
         r"\b(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}"
         r"(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\b"
@@ -86,13 +66,8 @@ class PatternMatrix:
         re.IGNORECASE
     )
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  DATA STRUCTURES
-# ═══════════════════════════════════════════════════════════════════════════
-
 @dataclass
 class NetworkEntity:
-    """Quantum data container for network entities"""
     identifier: str
     entity_type: str
     cdn_status: bool
@@ -104,8 +79,6 @@ class NetworkEntity:
     timestamp: str = datetime.now().isoformat()
 
 class CyberNetwork:
-    """Advanced network analysis engine"""
-
     def __init__(self, verbose: bool = True):
         self.verbose = verbose
         self.networks = self._build_quantum_networks()
@@ -389,13 +362,7 @@ class CyberNetwork:
         self.provider_cache[ip] = provider
         return provider
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  VISUAL DISPLAY ENGINE
-# ═══════════════════════════════════════════════════════════════════════════
-
 class HolographicDisplay:
-    """Advanced holographic UI renderer"""
-
     @staticmethod
     def render_entity(entity: NetworkEntity):
         if entity.cdn_status:
@@ -453,7 +420,6 @@ class HolographicDisplay:
 
     @staticmethod
     def render_header():
-        """Clean header without ASCII banner"""
         print(f"{Fore.CYAN}╔══════════════════════════════════════════════════════════════╗{Style.RESET_ALL}")
         print(f"{Fore.CYAN}║{Style.BRIGHT}{Fore.WHITE}  🚀 DRAKORYX - CDN Revelator v{Config.BUILD}{Fore.CYAN}                          ║{Style.RESET_ALL}")
         print(f"{Fore.CYAN}║{Style.DIM}  ⚡ Cybernetic Network Analysis Tool{Fore.CYAN}                                    ║{Style.RESET_ALL}")
@@ -465,7 +431,6 @@ class HolographicDisplay:
 
     @staticmethod
     def render_footer(stats: dict = None):
-        """Clean footer"""
         print(f"\n{Fore.CYAN}╔══════════════════════════════════════════════════════════════╗{Style.RESET_ALL}")
         print(f"{Fore.CYAN}║{Style.BRIGHT}{Fore.WHITE}  🔌 DRAKORYX - Scan Complete{Fore.CYAN}                                     ║{Style.RESET_ALL}")
         if stats:
@@ -503,15 +468,9 @@ class HolographicDisplay:
             print(f"\r{Fore.CYAN}Initializing neural network {Fore.YELLOW}{frames[i % len(frames)]}{Style.RESET_ALL}", end="")
         print("\r" + " " * 50 + "\r", end="")
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  TARGET INPUT HANDLER
-# ═══════════════════════════════════════════════════════════════════════════
-
 def get_targets():
-    """Get targets from stdin or interactive input"""
     targets = []
 
-    # Check if there's piped input
     if not sys.stdin.isatty():
         for line in sys.stdin:
             clean_line = line.strip()
@@ -519,7 +478,6 @@ def get_targets():
                 targets.append(clean_line)
         return targets
 
-    # Interactive mode
     print(f"{Fore.CYAN}┌─────────────────────────────────────────────────────────────┐{Style.RESET_ALL}")
     print(f"{Fore.CYAN}│{Style.BRIGHT}{Fore.WHITE}  🎯 TARGET INPUT {Style.RESET_ALL}")
     print(f"{Fore.CYAN}├─────────────────────────────────────────────────────────────┤{Style.RESET_ALL}")
@@ -549,10 +507,6 @@ def get_targets():
 
     return targets
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  MAIN ENGINE
-# ═══════════════════════════════════════════════════════════════════════════
-
 @click.command()
 @click.option("-t", "--threads", default=Config.DEFAULT_THREADS, help="Number of parallel scanning threads")
 @click.option("-o", "--output", help="Output file for results (JSON format)")
@@ -560,21 +514,6 @@ def get_targets():
 @click.option("--quiet", is_flag=True, help="Reduce output verbosity")
 @click.argument("targets", nargs=-1)
 def main(threads: int, output: str, no_animation: bool, quiet: bool, targets: tuple):
-    """
-    DRAKORYX - Advanced CDN Detection Engine
-    Scan IPs and domains to detect CDN protection (Cloudflare, CloudFront, Fastly, Akamai)
-
-    Usage:
-      # Interactive mode (will prompt for targets)
-      python drakoryx.py
-
-      # With arguments
-      python drakoryx.py google.com cloudflare.com
-
-      # Pipe input
-      cat targets.txt | python drakoryx.py -t 50 -o results.json
-    """
-
     verbose = not quiet
 
     HolographicDisplay.render_header()
@@ -585,21 +524,17 @@ def main(threads: int, output: str, no_animation: bool, quiet: bool, targets: tu
     print(f"{Fore.CYAN}⧫ Connecting to CDN networks...{Style.RESET_ALL}")
     analyzer = CyberNetwork(verbose=verbose)
 
-    # Collect targets from various sources
     all_targets = []
 
-    # 1. From command line arguments
     if targets:
         all_targets.extend(targets)
 
-    # 2. From pipe input
     if not sys.stdin.isatty():
         for line in sys.stdin:
             clean_line = line.strip()
             if clean_line:
                 all_targets.append(clean_line)
 
-    # 3. If no targets found, ask interactively
     if not all_targets:
         all_targets = get_targets()
 
@@ -607,7 +542,6 @@ def main(threads: int, output: str, no_animation: bool, quiet: bool, targets: tu
         print(f"{Fore.RED}⚠ No targets provided. Exiting...{Style.RESET_ALL}")
         return
 
-    # Process and validate targets
     entities = []
     invalid_entities = []
 
@@ -633,7 +567,6 @@ def main(threads: int, output: str, no_animation: bool, quiet: bool, targets: tu
         if len(invalid_entities) > 3:
             print(f"  {Fore.RED}... and {len(invalid_entities) - 3} more{Style.RESET_ALL}")
 
-    # Show what we're scanning
     print(f"\n{Fore.CYAN}┌─────────────────────────────────────────────────────────────┐{Style.RESET_ALL}")
     print(f"{Fore.CYAN}│{Style.BRIGHT}{Fore.WHITE}  🔍 SCAN INITIATED {Style.RESET_ALL}")
     print(f"{Fore.CYAN}├─────────────────────────────────────────────────────────────┤{Style.RESET_ALL}")
@@ -688,7 +621,6 @@ def main(threads: int, output: str, no_animation: bool, quiet: bool, targets: tu
         except Exception as e:
             print(f"{Fore.RED}⚠ Error saving results: {str(e)}{Style.RESET_ALL}")
 
-    # Render footer
     HolographicDisplay.render_footer(analyzer.stats)
 
 if __name__ == "__main__":
